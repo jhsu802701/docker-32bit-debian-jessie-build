@@ -1,0 +1,42 @@
+#!/bin/bash
+
+echo '===================================='
+echo 'BEGIN /usr/local/bin/docker-dev-root'
+echo '===================================='
+
+echo '----------------------'
+echo 'apt-get install -y git'
+apt-get install -y git
+
+echo '-------------------------'
+echo 'apt-get install -y puppet'
+apt-get install -y puppet
+
+echo '+++++++++++++++++++++'
+echo 'BEGIN installing Chef'
+echo '------------------------------------------------------'
+echo 'apt-get install -y curl wget python2.7 ca-certificates'
+apt-get install -y curl wget python2.7 ca-certificates
+echo '-------------------------------------------------------'
+echo 'curl -L https://www.opscode.com/chef/install.sh | bash;'
+curl -L https://www.opscode.com/chef/install.sh | bash;
+rm -f /tmp/chef*deb;
+chef-solo -v
+echo 'FINISHED installing Chef'
+echo '++++++++++++++++++++++++'
+
+echo '------------------------------------'
+echo 'apt-get install -y python2.7 ansible'
+apt-get install -y python2.7 ansible
+
+# Needed for Heroku
+echo '----------------------------------------------------------'
+echo 'apt-get install -y git wget ca-certificates openssh-client'
+apt-get install -y git wget ca-certificates openssh-client
+
+echo '======================================='
+echo 'FINISHED /usr/local/bin/docker-dev-root'
+echo '======================================='
+
+su -c /usr/local/bin/docker-dev-user winner
+su -c /usr/local/bin/docker-dev-check winner

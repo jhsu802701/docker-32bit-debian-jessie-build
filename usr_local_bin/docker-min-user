@@ -1,0 +1,23 @@
+#!/bin/bash
+
+echo '===================================='
+echo 'BEGIN /usr/local/bin/docker-min-user'
+echo '===================================='
+
+# Adding notes to /home/winner/timestamp.txt
+echo 'Adding notes to /home/winner/timestamp.txt'
+echo 'The times listed below are in UTC time.' > /home/winner/timestamp.txt
+echo 'The first build date pertains to the Minimal Edition.' >> /home/winner/timestamp.txt
+echo 'Subsequent build dates pertain to derivative editions.' >> /home/winner/timestamp.txt
+echo 'All other dates listed are the times you logged in since you last reset the Docker container.' >> /home/winner/timestamp.txt
+
+# Fill in /home/winner/.bashrc
+echo 'Filling in /home/winner/.bashrc'
+echo 'DATE=`date +%Y_%m%d_%H%M_%S -u`' >> /home/winner/.bashrc
+echo 'echo $DATE >> /home/winner/timestamp.txt' >> /home/winner/.bashrc
+echo 'cat /home/winner/timestamp.txt' >> /home/winner/.bashrc
+echo 'cd /home/winner/shared' >> /home/winner/.bashrc
+
+echo '======================================='
+echo 'FINISHED /usr/local/bin/docker-min-user'
+echo '======================================='

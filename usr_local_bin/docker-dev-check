@@ -1,0 +1,25 @@
+#!/bin/bash
+
+echo '====================================='
+echo 'BEGIN /usr/local/bin/docker-dev-check'
+echo '====================================='
+
+echo '-----------------------'
+echo 'puppet master --version'
+puppet master --version
+
+echo '------------'
+echo 'chef-solo -v'
+chef-solo -v
+
+echo '-----------------'
+echo 'ansible --version'
+ansible --version
+
+echo '--------------'
+echo 'heroku version'
+heroku version
+
+echo '========================================'
+echo 'FINISHED /usr/local/bin/docker-dev-check'
+echo '========================================'

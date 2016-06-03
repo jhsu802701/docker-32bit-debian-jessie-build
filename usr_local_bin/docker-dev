@@ -1,0 +1,21 @@
+#!/bin/bash
+
+echo '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$'
+echo 'BEGIN /usr/local/bin/docker-dev'
+echo '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$'
+
+/usr/local/bin/docker-root-aptget
+
+echo '*************************************************************'
+echo 'BEGIN transforming minimal debootstrap into Developer Edition'
+echo '*************************************************************'
+/usr/local/bin/docker-dev-root
+echo '****************************************************************'
+echo 'FINISHED transforming minimal debootstrap into Developer Edition'
+echo '****************************************************************'
+
+/usr/local/bin/docker-root-finalize
+
+echo '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$'
+echo 'FINISHED /usr/local/bin/docker-dev'
+echo '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$'

@@ -1,0 +1,4 @@
+# Files to ignore
+*.tgz
+*.md5sum
+log/*

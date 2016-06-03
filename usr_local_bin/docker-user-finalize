@@ -1,0 +1,15 @@
+#!/bin/bash
+
+echo '========================================='
+echo 'BEGIN /usr/local/bin/docker-user-finalize'
+echo '========================================='
+
+echo 'Filling in /home/winner/timestamp.txt'
+echo "Build Date:" >> /home/winner/timestamp.txt
+DATE=`date +%Y_%m%d_%H%M -u`
+echo "$DATE" >> /home/winner/timestamp.txt
+echo '' >> /home/winner/timestamp.txt
+
+echo '============================================'
+echo 'FINISHED /usr/local/bin/docker-user-finalize'
+echo '============================================'
