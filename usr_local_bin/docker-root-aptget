@@ -10,11 +10,6 @@ export DEBCONF_NOWARNINGS='true'
 export HOME=/root
 export LC_ALL=C
 
-echo '---------------------------------------------------------------'
-echo 'Configuring /etc/apt/apt.conf to install required packages only'
-echo 'APT::Install-Recommends "0";' > /etc/apt/apt.conf
-echo 'APT::Install-Suggests "0";' >> /etc/apt/apt.conf
-
 echo '-------------'
 echo 'cd / && du -s'
 cd / && du -s

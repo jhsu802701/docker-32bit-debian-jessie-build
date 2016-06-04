@@ -53,6 +53,10 @@ create_debian ()
   echo '******************************************'
   echo 'FINISHED Debian from scratch (debootstrap)'
   echo '******************************************'
+  echo '--------------------------------------------------------------------------'
+  echo "Configuring $DIR_CHROOT/etc/apt/apt.conf to install required packages only"
+  echo 'APT::Install-Recommends "0";' > $DIR_CHROOT/etc/apt/apt.conf
+  echo 'APT::Install-Suggests "0";' >> $DIR_CHROOT/etc/apt/apt.conf  
   echo '----------------------------------'
   echo "Copying scripts from usr_local_bin"
   echo 'Copying scripts used for all editions'
