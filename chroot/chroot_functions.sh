@@ -31,14 +31,13 @@ create_debian ()
   # Settings
   OWNER=$1
   SUITE=$2
-  ABBREV=$3
-  DIR_CHROOT_ABBREV=$4
+  DIR_CHROOT=$3
   APT_MIRROR='http://httpredir.debian.org/debian'
   ARCH=i386
 
-  echo '-------------------------'
-  echo "rm -rf $DIR_CHROOT_ABBREV"
-  rm -rf $DIR_CHROOT_ABBREV
+  echo '------------------'
+  echo "rm -rf $DIR_CHROOT"
+  rm -rf $DIR_CHROOT
 
   # Make sure that the required tools are installed in the host system
   echo '-----------------------------------------------------'
@@ -48,29 +47,26 @@ create_debian ()
   echo '***************************************'
   echo 'BEGIN Debian from scratch (debootstrap)'
   echo '***************************************'
-  echo '--------------------------------------------------------------------------------------------------'
-  echo "debootstrap --arch $ARCH --variant=minbase --components=main $SUITE $DIR_CHROOT_ABBREV $APT_MIRROR"
-  debootstrap --arch $ARCH --variant=minbase --components=main $SUITE $DIR_CHROOT_ABBREV $APT_MIRROR
+  echo '-------------------------------------------------------------------------------------------'
+  echo "debootstrap --arch $ARCH --variant=minbase --components=main $SUITE $DIR_CHROOT $APT_MIRROR"
+  debootstrap --arch $ARCH --variant=minbase --components=main $SUITE $DIR_CHROOT $APT_MIRROR
   echo '******************************************'
   echo 'FINISHED Debian from scratch (debootstrap)'
   echo '******************************************'
   echo '----------------------------------'
   echo "Copying scripts from usr_local_bin"
   echo 'Copying scripts used for all editions'
-  cp usr_local_bin/docker-root-aptget $DIR_CHROOT_ABBREV/usr/local/bin
-  cp usr_local_bin/docker-root-finalize $DIR_CHROOT_ABBREV/usr/local/bin
-  cp usr_local_bin/docker-user-finalize $DIR_CHROOT_ABBREV/usr/local/bin
-  cp usr_local_bin/docker-min $DIR_CHROOT_ABBREV/usr/local/bin
-  cp usr_local_bin/docker-min-* $DIR_CHROOT_ABBREV/usr/local/bin
-  if [ $ABBREV != 'min' ]
-  then
-    cp usr_local_bin/docker-dev $DIR_CHROOT_ABBREV/usr/local/bin
-    cp usr_local_bin/docker-dev-* $DIR_CHROOT_ABBREV/usr/local/bin
-  fi
+  cp usr_local_bin/docker-root-aptget $DIR_CHROOT/usr/local/bin
+  cp usr_local_bin/docker-root-finalize $DIR_CHROOT/usr/local/bin
+  cp usr_local_bin/docker-user-finalize $DIR_CHROOT/usr/local/bin
+  cp usr_local_bin/docker-min $DIR_CHROOT/usr/local/bin
+  cp usr_local_bin/docker-min-* $DIR_CHROOT/usr/local/bin
+  cp usr_local_bin/docker-dev $DIR_CHROOT/usr/local/bin
+  cp usr_local_bin/docker-dev-* $DIR_CHROOT/usr/local/bin
   
   echo '--------------------------------------------'
-  echo "chmod a+x $DIR_CHROOT_ABBREV/usr/local/bin/*"
-  chmod a+x $DIR_CHROOT_ABBREV/usr/local/bin/*
+  echo "chmod a+x $DIR_CHROOT/usr/local/bin/*"
+  chmod a+x $DIR_CHROOT/usr/local/bin/*
 
-  exec_chroot $DIR_CHROOT_ABBREV /usr/local/bin/docker-$ABBREV  
+  exec_chroot $DIR_CHROOT /usr/local/bin/docker-min  
 }

@@ -24,33 +24,32 @@ T_START=$(date +'%s')
 OWNER=$1
 DISTRO=$2
 SUITE=$3
-ABBREV=$4
-TGZ1=$5
-TGZ2=$6
-UNAME=$7
+TGZ1=$4
+TGZ2=$5
+UNAME=$6
 
 # Settings
 ARCH=i386
-DIR_CHROOT_ABBREV="/var/chroot/$SUITE/$ABBREV"
+DIR_CHROOT="/var/chroot/$SUITE/min"
 APT_MIRROR='http://httpredir.debian.org/debian'
-DOCKER_IMAGE="$OWNER/32bit-$DISTRO-$SUITE-$ABBREV"
+DOCKER_IMAGE="$OWNER/32bit-$DISTRO-$SUITE-min"
 
 echo '-----------------'
 echo 'Build parameters:'
 echo "Architecture: $ARCH"
 echo "Suite: $SUITE"
-echo "Chroot directory: $DIR_CHROOT_ABBREV"
+echo "Chroot directory: $DIR_CHROOT"
 echo "Apt-get mirror: $APT_MIRROR"
 echo "Docker image: $DOCKER_IMAGE"
 echo '---------------------------'
 
 # CHROOT OPERATIONS
-create_debian $OWNER $SUITE $ABBREV $DIR_CHROOT_ABBREV
+create_debian $OWNER $SUITE $DIR_CHROOT
 
 # CHROOT -> TGZ
 TGZ_SHORT=$TGZ1
 TGZ_LONG=$TGZ2
-create_tgz $TGZ_LONG $DIR_CHROOT_ABBREV
+create_tgz $TGZ_LONG $DIR_CHROOT
 rm $TGZ_SHORT
 cp $TGZ_LONG $TGZ_SHORT
 
