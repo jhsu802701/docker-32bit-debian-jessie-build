@@ -6,7 +6,4 @@ if [ "$(id -u)" = "0" ]; then
 fi
 
 ABBREV='dev'
-
-mkdir -p log
-FILE_LOG="log/build-min-$DATE.txt"
 sh build.sh $ABBREV

@@ -2,3 +2,4 @@
 *.tgz
 *.md5sum
 log/*
+tmp*

@@ -9,7 +9,6 @@ echo '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$'
 echo '*************************************************************'
 echo 'BEGIN transforming minimal debootstrap into Developer Edition'
 echo '*************************************************************'
-/usr/local/bin/docker-min-root
 /usr/local/bin/docker-dev-root
 echo '****************************************************************'
 echo 'FINISHED transforming minimal debootstrap into Developer Edition'
