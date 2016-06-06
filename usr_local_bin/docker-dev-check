@@ -1,5 +1,7 @@
 #!/bin/bash
 
+docker-min-check
+
 echo '====================================='
 echo 'BEGIN /usr/local/bin/docker-dev-check'
 echo '====================================='

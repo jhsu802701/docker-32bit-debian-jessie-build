@@ -1,0 +1,41 @@
+#!/bin/bash
+
+/usr/local/bin/docker-dev-check
+
+echo '==========================================='
+echo 'BEGIN /usr/local/bin/docker-rbenv-min-check'
+echo '==========================================='
+
+echo '----------------'
+echo 'python --version'
+python --version
+
+echo '---------------'
+echo 'redis-server -v'
+redis-server -v
+
+echo '----------------'
+echo 'sqlite3 -version'
+sqlite3 -version
+
+echo '--------------'
+echo 'psql --version'
+psql --version
+
+echo '---------'
+echo 'nodejs -v'
+nodejs -v
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+
+echo '----------'
+echo 'type rbenv'
+type rbenv
+
+echo '--------------'
+echo 'rbenv versions'
+rbenv versions
+
+echo '=============================================='
+echo 'FINISHED /usr/local/bin/docker-rbenv-min-check'
+echo '=============================================='

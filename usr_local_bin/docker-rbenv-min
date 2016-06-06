@@ -1,0 +1,21 @@
+#!/bin/bash
+
+echo '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$'
+echo 'BEGIN /usr/local/bin/docker-rbenv-min'
+echo '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$'
+
+/usr/local/bin/docker-root-aptget
+
+echo '*********************************************************'
+echo 'BEGIN transforming Minimal Edition into rbenv-min Edition'
+echo '*********************************************************'
+/usr/local/bin/docker-rbenv-min-root
+echo '************************************************************'
+echo 'FINISHED transforming Minimal Edition into rbenv-min Edition'
+echo '************************************************************'
+
+/usr/local/bin/docker-root-finalize
+
+echo '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$'
+echo 'FINISHED /usr/local/bin/docker-rbenv-min'
+echo '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$'

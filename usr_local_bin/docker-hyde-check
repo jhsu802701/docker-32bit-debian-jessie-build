@@ -1,0 +1,19 @@
+#!/bin/bash
+
+/usr/local/bin/docker-dev-check
+
+echo '======================================'
+echo 'BEGIN /usr/local/bin/docker-hyde-check'
+echo '======================================'
+
+echo '----------------'
+echo 'python --version'
+python --version
+
+echo '--------------'
+echo 'hyde --version'
+hyde --version
+
+echo '========================================='
+echo 'FINISHED /usr/local/bin/docker-hyde-check'
+echo '========================================='

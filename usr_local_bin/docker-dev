@@ -6,13 +6,13 @@ echo '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$'
 
 /usr/local/bin/docker-root-aptget
 
-echo '*************************************************************'
-echo 'BEGIN transforming minimal debootstrap into Developer Edition'
-echo '*************************************************************'
+echo '*********************************************************'
+echo 'BEGIN transforming Minimal Edition into Developer Edition'
+echo '*********************************************************'
 /usr/local/bin/docker-dev-root
-echo '****************************************************************'
-echo 'FINISHED transforming minimal debootstrap into Developer Edition'
-echo '****************************************************************'
+echo '************************************************************'
+echo 'FINISHED transforming Minimal Edition into Developer Edition'
+echo '************************************************************'
 
 /usr/local/bin/docker-root-finalize
 
