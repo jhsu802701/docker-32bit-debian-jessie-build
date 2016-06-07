@@ -67,11 +67,17 @@ function install_gems {
 # Input parameter: 'ruby-x.y'
 function install_ruby_version {
   ruby_version=$1
-  echo '+++++++++++++++++++++++++++'
-  echo "rbenv install $ruby_version"
-  rbenv install $ruby_version
+  echo '++++++++++++++++++++++++++++++++'
+  echo "time rbenv install $ruby_version"
+  time rbenv install $ruby_version
+  echo ' /\'
+  echo '/  \'
+  echo 'Time to install Ruby 2.3.1'
   rbenv global $ruby_version
-  install_gems
+  time install_gems
+  echo ' /\'
+  echo '/  \'
+  echo 'Time to install gems'
 }
 
 # Allow rbenv commands to work
@@ -81,7 +87,11 @@ type rbenv
 
 # Latest versions of Ruby
 # https://www.ruby-lang.org/en/downloads/
-install_ruby_version 2.3.1
+time install_ruby_version 2.3.1
+echo ' /\'
+echo '/  \'
+echo 'Time to install Ruby 2.3.1'
+
 rbenv global 2.3.1
 
 echo '*********************************'

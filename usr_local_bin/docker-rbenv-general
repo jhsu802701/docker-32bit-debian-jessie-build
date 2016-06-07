@@ -4,17 +4,28 @@ echo '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$'
 echo 'BEGIN /usr/local/bin/docker-rbenv-general'
 echo '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$'
 
-/usr/local/bin/docker-root-aptget
+time /usr/local/bin/docker-root-aptget
+echo ' /\'
+echo '/  \'
+echo 'Time to execute /usr/local/bin/docker-root-aptget'
 
 echo '*************************************************************'
 echo 'BEGIN transforming Minimal Edition into rbenv-general Edition'
 echo '*************************************************************'
-/usr/local/bin/docker-rbenv-general-root
+
+time /usr/local/bin/docker-rbenv-general-root
+echo ' /\'
+echo '/  \'
+echo 'Time to execute /usr/local/bin/docker-rbenv-general-root'
+
 echo '****************************************************************'
 echo 'FINISHED transforming Minimal Edition into rbenv-general Edition'
 echo '****************************************************************'
 
-/usr/local/bin/docker-root-finalize
+time /usr/local/bin/docker-root-finalize
+echo ' /\'
+echo '/  \'
+echo 'Time to execute /usr/local/bin/docker-root-finalize'
 
 echo '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$'
 echo 'FINISHED /usr/local/bin/docker-rbenv-general'
