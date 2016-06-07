@@ -26,7 +26,10 @@ echo '---------'
 echo 'nodejs -v'
 nodejs -v
 
+# Allow rbenv commands to work
 export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+type rbenv
 
 echo '----------'
 echo 'type rbenv'

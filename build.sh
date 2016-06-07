@@ -20,6 +20,7 @@ then
   TGZ2="$DISTRO-$SUITE-min-$DATE.tgz"
   sudo sh debootstrap.sh $OWNER $DISTRO $SUITE $TGZ1 $TGZ2 $UNAME 2>&1 | tee $FILE_LOG
 else
+  echo ''
   echo 'The Docker image you are about to build is based on'
   echo "$OWNER/32bit-$DISTRO-$SUITE-min."
   echo 'Check the age of the latest version at'
@@ -28,11 +29,29 @@ else
   echo 'weeks old, you should build and upload a new one first with the'
   echo 'min.sh command.'
   echo
-  read -p 'Do you wish to continue? (Y/N) ' choice
-  case "$choice" in 
+  read -p 'Do you wish to continue? (Y/N) ' choice1
+  case "$choice1" in 
     y|Y )
-      sh template.sh $ABBREV 2>&1 | tee $FILE_LOG
-      ;;
+      echo '*************'
+      echo 'ls -l /bin/sh'
+      ls -l /bin/sh
+      echo '/bin/sh should point to Bash instead of Dash'
+      echo 'If /bin/sh points to Dash, the commands to correct this are:'
+      echo 'sudo rm /bin/sh'
+      echo 'sudo ln -s /bin/bash /bin/sh'
+      echo '****************************'
+      echo
+      read -p 'Are you ready to continue? (Y/N) ' choice2
+      case "$choice2" in
+        y|Y )
+          sh template.sh $ABBREV 2>&1 | tee $FILE_LOG
+        ;;
+        * )
+          echo '--------------------------'
+          echo "Aborting the build process"
+        ;;
+      esac
+    ;;
     * )
       echo '--------------------------'
       echo "Aborting the build process"

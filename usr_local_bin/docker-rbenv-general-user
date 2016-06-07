@@ -1,0 +1,93 @@
+#!/bin/bash
+
+echo '=============================================='
+echo 'BEGIN /usr/local/bin/docker-rbenv-general-user'
+echo '=============================================='
+
+# Set of gems to install for each version of Ruby
+function install_gems {
+  echo '-------------------'
+  echo 'gem install bundler'
+  gem install bundler
+
+  # The latest versions of Rails, PostgreSQL, Nokogiri, and MailCatcher
+  echo '-----------------'
+  echo 'gem install rails'
+  gem install rails
+  echo '--------------'
+  echo 'gem install pg'
+  gem install pg
+  echo '--------------------'
+  echo 'gem install nokogiri'
+  gem install nokogiri
+  echo '-----------------------'
+  echo 'gem install mailcatcher'
+  gem install mailcatcher
+
+  # For Rails Tutorial (Rails 4.2)
+  # https://www.railstutorial.org/
+  # https://github.com/mhartl/sample_app_3rd_edition
+  echo '------------------------'
+  echo 'gem install pg -v 0.17.1'
+  gem install pg -v 0.17.1
+  echo '-------------------------------'
+  echo 'gem install nokogiri -v 1.6.6.4'
+  gem install nokogiri -v 1.6.6.4
+  echo '--------------------------'
+  echo 'gem install rails -v 4.2.2'
+  gem install rails -v 4.2.2
+
+  # For Rails Tutorial (Rails 4.0)
+  # http://rails-4-0.railstutorial.org/book
+  # https://github.com/railstutorial/sample_app_rails_4
+  echo '------------------------'
+  echo 'gem install pg -v 0.15.1'
+  gem install pg -v 0.15.1
+  echo '-------------------------------'
+  echo 'gem install nokogiri -v 1.6.2.1'
+  gem install nokogiri -v 1.6.2.1
+  echo '--------------------------'
+  echo 'gem install rails -v 4.0.8'
+  gem install rails -v 4.0.8
+
+  # For Rails Tutorial (Rails 3.2)
+  # http://rails-3-2.railstutorial.org/
+  # https://github.com/railstutorial/sample_app_2nd_ed
+  echo '------------------------'
+  echo 'gem install pg -v 0.12.2'
+  gem install pg -v 0.12.2
+  echo '-----------------------------'
+  echo 'gem install nokogiri -v 1.6.0'
+  gem install nokogiri -v 1.6.0
+  echo '---------------------------'
+  echo 'gem install rails -v 3.2.16'
+  gem install rails -v 3.2.16
+}
+
+# Input parameter: 'ruby-x.y'
+function install_ruby_version {
+  ruby_version=$1
+  echo '+++++++++++++++++++++++++++'
+  echo "rbenv install $ruby_version"
+  rbenv install $ruby_version
+  rbenv global $ruby_version
+  install_gems
+}
+
+# Allow rbenv commands to work
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+type rbenv
+
+# Latest versions of Ruby
+# https://www.ruby-lang.org/en/downloads/
+install_ruby_version 2.3.1
+rbenv global 2.3.1
+
+echo '*********************************'
+echo 'FINISHED installing Ruby on Rails'
+echo '*********************************'
+
+echo '================================================='
+echo 'FINISHED /usr/local/bin/docker-rbenv-general-user'
+echo '================================================='
