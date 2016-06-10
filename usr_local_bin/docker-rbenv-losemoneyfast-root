@@ -1,0 +1,14 @@
+#!/bin/bash
+
+/usr/local/bin/docker-rbenv-min-root
+
+echo '=============================================='
+echo 'BEGIN /usr/local/bin/docker-rbenv-losemoneyfast-root'
+echo '=============================================='
+
+echo '================================================='
+echo 'FINISHED /usr/local/bin/docker-rbenv-losemoneyfast-root'
+echo '================================================='
+
+su -c /usr/local/bin/docker-rbenv-losemoneyfast-user winner
+su -c /usr/local/bin/docker-rbenv-losemoneyfast-check winner
