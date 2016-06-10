@@ -1,0 +1,32 @@
+#!/bin/bash
+
+echo '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$'
+echo 'BEGIN /usr/local/bin/docker-rbenv-rubymn'
+echo '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$'
+
+time /usr/local/bin/docker-root-aptget
+echo ' /\'
+echo '/  \'
+echo 'Time to execute /usr/local/bin/docker-root-aptget'
+
+echo '*************************************************************'
+echo 'BEGIN transforming Minimal Edition into rbenv-rubymn Edition'
+echo '*************************************************************'
+
+time /usr/local/bin/docker-rbenv-rubymn-root
+echo ' /\'
+echo '/  \'
+echo 'Time to execute /usr/local/bin/docker-rbenv-rubymn-root'
+
+echo '****************************************************************'
+echo 'FINISHED transforming Minimal Edition into rbenv-rubymn Edition'
+echo '****************************************************************'
+
+time /usr/local/bin/docker-root-finalize
+echo ' /\'
+echo '/  \'
+echo 'Time to execute /usr/local/bin/docker-root-finalize'
+
+echo '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$'
+echo 'FINISHED /usr/local/bin/docker-rbenv-rubymn'
+echo '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$'

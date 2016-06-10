@@ -72,7 +72,7 @@ function install_ruby_version {
   time rbenv install $ruby_version
   echo ' /\'
   echo '/  \'
-  echo 'Time to install Ruby 2.3.1'
+  echo "Time to install Ruby $rubyversion"
   rbenv global $ruby_version
   time install_gems
   echo ' /\'
@@ -90,7 +90,7 @@ type rbenv
 time install_ruby_version 2.3.1
 echo ' /\'
 echo '/  \'
-echo 'Time to install Ruby 2.3.1'
+echo 'Time to install Ruby 2.3.1 and gems'
 
 rbenv global 2.3.1
 
