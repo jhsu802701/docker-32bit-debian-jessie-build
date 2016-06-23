@@ -51,12 +51,13 @@ import_local_image ()
   echo '******************************************************'
   echo "Test this new image ($DOCKER_IMAGE) before pushing it."
   echo '1. Start a new shell window.'
-  echo '2. git clone https://github.com/jhsu802701/docker-32bit-debian-jessie.git'
+  echo '2. git clone https://github.com/jhsu802701/docker-debian-jessie.git'
+  echo '3. cd docker-debian-jessie'
   echo '3. sh min.sh'
   echo '4. cd min'
   echo '5. sh reset.sh'
-  echo "6. In Docker, enter the command 'sh info.sh'."
-  echo '7. In Docker, use the test scripts (if provided).'
+  echo "6. In Docker, go to /home/winner/shared and enter the command 'sh info.sh'."
+  echo '7. In Docker, go to /home/winner/shared and use the test scripts (if provided).'
   echo
   echo 'Checklist:'
   echo '* sh info.sh: This should show the initial build date and only'
