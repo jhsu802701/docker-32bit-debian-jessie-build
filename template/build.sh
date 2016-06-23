@@ -48,12 +48,13 @@ docker run -i -t $DOCKER_IMAGE
 echo '******************************************************'
 echo "Test this new image ($DOCKER_IMAGE) before pushing it."
 echo '1. Start a new shell window.'
-echo '2. git clone https://github.com/jhsu802701/docker-32bit-debian-jessie.git'
-echo "3. sh $ABBREV.sh"
-echo "4. cd $ABBREV"
-echo '5. sh reset.sh'
-echo "6. In Docker, enter the command 'sh info.sh'."
-echo '7. In Docker, use the test scripts (if provided).'
+echo '2. git clone https://github.com/jhsu802701/docker-debian-jessie.git'
+echo '3. cd docker-debian-jessie'
+echo "4. sh 32$ABBREV.sh"
+echo "5. cd $ABBREV"
+echo '6. sh reset.sh'
+echo "7. In Docker, go to /home/winner/shared and enter the command 'sh info.sh'."
+echo '8. In Docker, go to /home/winner/shared and use the test scripts (if provided).'
 echo
 echo 'Checklist:'
 echo '* sh info.sh: This should show the initial build dates and only'
