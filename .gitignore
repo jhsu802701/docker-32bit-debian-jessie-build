@@ -3,4 +3,4 @@
 *.md5sum
 log/*
 tmp*
-docker-debian-jessie/*
+docker-debian-jessie
