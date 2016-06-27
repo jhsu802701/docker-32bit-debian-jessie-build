@@ -27,9 +27,9 @@ function install_gems {
   echo '------------------------'
   echo 'gem install pg -v 0.18.4'
   gem install pg -v 0.18.4
-  echo '-------------------------------'
-  echo 'gem install nokogiri -v 1.6.7.2'
-  gem install nokogiri -v 1.6.7.2
+  echo '-----------------------------'
+  echo 'gem install nokogiri -v 1.6.8'
+  gem install nokogiri -v 1.6.8
   echo '--------------------------'
   echo 'gem install rails -v 4.2.6'
   gem install rails -v 4.2.6
