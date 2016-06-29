@@ -24,8 +24,20 @@ function install_gems {
   echo 'gem install mailcatcher'
   gem install mailcatcher
 
-  # For Rails Tutorial (Rails 4.2)
+  # For Rails Tutorial (Rails 5.0)
   # https://www.railstutorial.org/
+  # https://bitbucket.org/railstutorial/sample_app_4th_ed
+  echo '------------------------'
+  echo 'gem install pg -v 0.18.4'
+  gem install pg -v 0.18.4
+  echo '-----------------------------'
+  echo 'gem install nokogiri -v 1.6.8'
+  gem install nokogiri -v 1.6.8
+  echo '------------------------------'
+  echo 'gem install rails -v 5.0.0.rc2'
+  gem install rails -v5.0.0.rc2
+
+  # For Rails Tutorial (Rails 4.2)
   # https://github.com/mhartl/sample_app_3rd_edition
   echo '------------------------'
   echo 'gem install pg -v 0.17.1'
