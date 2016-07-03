@@ -33,9 +33,9 @@ function install_gems {
   echo '-----------------------------'
   echo 'gem install nokogiri -v 1.6.8'
   gem install nokogiri -v 1.6.8
-  echo '------------------------------'
-  echo 'gem install rails -v 5.0.0.rc2'
-  gem install rails -v5.0.0.rc2
+  echo '--------------------------'
+  echo 'gem install rails -v 5.0.0'
+  gem install rails -v5.0.0
 
   # For Rails Tutorial (Rails 4.2)
   # https://github.com/mhartl/sample_app_3rd_edition
