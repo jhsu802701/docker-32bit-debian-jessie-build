@@ -30,9 +30,9 @@ function install_gems {
   echo '-----------------------------'
   echo 'gem install nokogiri -v 1.6.8'
   gem install nokogiri -v 1.6.8
-  echo '--------------------------'
-  echo 'gem install rails -v 5.0.0'
-  gem install rails -v 5.0.0
+  echo '----------------------------'
+  echo 'gem install rails -v 5.0.0.1'
+  gem install rails -v 5.0.0.1
 }
 
 # Input parameter: 'ruby-x.y'
