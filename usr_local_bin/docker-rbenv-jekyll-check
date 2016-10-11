@@ -1,0 +1,28 @@
+#!/bin/bash
+
+/usr/local/bin/docker-rbenv-min-check
+
+echo '==============================================='
+echo 'BEGIN /usr/local/bin/docker-rbenv-jekyll-check'
+echo '==============================================='
+
+# Allow rbenv commands to work
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+type rbenv
+
+echo '-------'
+echo 'ruby -v'
+ruby -v
+
+echo '--------------'
+echo 'rbenv versions'
+rbenv versions
+
+echo '------------------'
+echo 'gem list "^jekyll"'
+gem list "^jekyll"
+
+echo '=================================================='
+echo 'FINISHED /usr/local/bin/docker-rbenv-jekyll-check'
+echo '=================================================='
