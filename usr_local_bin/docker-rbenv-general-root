@@ -1,6 +1,6 @@
 #!/bin/bash
 
-/usr/local/bin/docker-rbenv-min-root
+/usr/local/bin/docker-dev-root
 
 echo '=============================================='
 echo 'BEGIN /usr/local/bin/docker-rbenv-general-root'

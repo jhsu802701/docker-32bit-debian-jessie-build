@@ -21,12 +21,6 @@ cp usr_local_bin/docker-dev $DIR_TMP_ABBREV/usr_local_bin
 cp usr_local_bin/docker-dev-* $DIR_TMP_ABBREV/usr_local_bin
 cp usr_local_bin/docker-$ABBREV $DIR_TMP_ABBREV/usr_local_bin
 cp usr_local_bin/docker-$ABBREV-* $DIR_TMP_ABBREV/usr_local_bin
-if [[ "$ABBREV" =~ "rbenv" ]]
-then
-  echo '-----------------------------------------------------------------'
-  echo "cp usr_local_bin/docker-rbenv-min-* $DIR_TMP_ABBREV/usr_local_bin"
-  cp usr_local_bin/docker-rbenv-min-* $DIR_TMP_ABBREV/usr_local_bin
-fi
 
 echo 'NOTICE:' > $DIR_TMP_ABBREV/README.txt
 echo 'Files in this directory are created with an automated script.' >> $DIR_TMP_ABBREV/README.txt

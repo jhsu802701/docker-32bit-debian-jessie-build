@@ -1,6 +1,6 @@
 #!/bin/bash
 
-/usr/local/bin/docker-rbenv-min-check
+/usr/local/bin/docker-dev-check
 
 echo '==============================================='
 echo 'BEGIN /usr/local/bin/docker-rbenv-rubymn2-check'
