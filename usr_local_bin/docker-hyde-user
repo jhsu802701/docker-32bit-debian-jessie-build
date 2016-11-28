@@ -1,9 +1,0 @@
-#!/bin/bash
-
-echo '====================================='
-echo 'BEGIN /usr/local/bin/docker-hyde-user'
-echo '====================================='
-
-echo '========================================'
-echo 'FINISHED /usr/local/bin/docker-hyde-user'
-echo '========================================'
