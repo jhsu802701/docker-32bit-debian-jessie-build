@@ -39,12 +39,12 @@ type rbenv
 
 # Latest versions of Ruby
 # https://www.ruby-lang.org/en/downloads/
-time install_ruby_version 2.4.0
+time install_ruby_version 2.3.3
 echo ' /\'
 echo '/  \'
-echo 'Time to install Ruby 2.4.0 and gems'
+echo 'Time to install Ruby 2.3.3 and gems'
 
-rbenv global 2.4.0
+rbenv global 2.3.3
 
 echo '*********************************'
 echo 'FINISHED installing Ruby on Rails'
