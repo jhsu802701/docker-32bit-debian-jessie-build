@@ -37,43 +37,16 @@ function install_gems {
   echo 'gem install rails -v 5.0.1'
   gem install rails -v 5.0.1
 
-  # For Rails Tutorial (Rails 4.2)
-  # https://github.com/mhartl/sample_app_3rd_edition
+  # One version behind Rails Tutorial (Rails 5.0)
   echo '------------------------'
-  echo 'gem install pg -v 0.17.1'
-  gem install pg -v 0.17.1
-  echo '-------------------------------'
-  echo 'gem install nokogiri -v 1.6.6.4'
-  gem install nokogiri -v 1.6.6.4
-  echo '--------------------------'
-  echo 'gem install rails -v 4.2.2'
-  gem install rails -v 4.2.2
-
-  # For Rails Tutorial (Rails 4.0)
-  # http://rails-4-0.railstutorial.org/book
-  # https://github.com/railstutorial/sample_app_rails_4
-  echo '------------------------'
-  echo 'gem install pg -v 0.15.1'
-  gem install pg -v 0.15.1
-  echo '-------------------------------'
-  echo 'gem install nokogiri -v 1.6.2.1'
-  gem install nokogiri -v 1.6.2.1
-  echo '--------------------------'
-  echo 'gem install rails -v 4.0.8'
-  gem install rails -v 4.0.8
-
-  # For Rails Tutorial (Rails 3.2)
-  # http://rails-3-2.railstutorial.org/
-  # https://github.com/railstutorial/sample_app_2nd_ed
-  echo '------------------------'
-  echo 'gem install pg -v 0.12.2'
-  gem install pg -v 0.12.2
+  echo 'gem install pg -v 0.18.3'
+  gem install pg -v 0.18.3
   echo '-----------------------------'
-  echo 'gem install nokogiri -v 1.6.0'
-  gem install nokogiri -v 1.6.0
-  echo '---------------------------'
-  echo 'gem install rails -v 3.2.16'
-  gem install rails -v 3.2.16
+  echo 'gem install nokogiri -v 1.6.8'
+  gem install nokogiri -v 1.6.8
+  echo '----------------------------'
+  echo 'gem install rails -v 5.0.0.1'
+  gem install rails -v 5.0.0.1
 }
 
 # Input parameter: 'ruby-x.y'
@@ -99,12 +72,12 @@ type rbenv
 
 # Latest versions of Ruby
 # https://www.ruby-lang.org/en/downloads/
-time install_ruby_version 2.3.3
+time install_ruby_version 2.4.0
 echo ' /\'
 echo '/  \'
-echo 'Time to install Ruby 2.3.3 and gems'
+echo 'Time to install Ruby 2.4.0 and gems'
 
-rbenv global 2.3.3
+rbenv global 2.4.0
 
 echo '*********************************'
 echo 'FINISHED installing Ruby on Rails'
