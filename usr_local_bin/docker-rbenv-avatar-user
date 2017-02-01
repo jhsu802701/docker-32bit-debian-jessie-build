@@ -1,0 +1,85 @@
+#!/bin/bash
+
+echo '=============================================='
+echo 'BEGIN /usr/local/bin/docker-rbenv-avatar-user'
+echo '=============================================='
+
+# Set of gems to install for each version of Ruby
+function install_gems {
+  echo '-------------------'
+  echo 'gem install bundler'
+  gem install bundler
+
+  echo '-----------------'
+  echo 'gem install rails'
+  gem install rails
+  echo '--------------------------'
+  echo 'gem install rails -v 5.0.1'
+  gem install rails -v 5.0.1
+
+  echo '--------------'
+  echo 'gem install pg'
+  gem install pg
+  echo '------------------------'
+  echo 'gem install pg -v 0.19.0'
+  gem install pg -v 0.19.0
+
+  echo '--------------------'
+  echo 'gem install nokogiri'
+  gem install nokogiri
+  echo '-------------------------------'
+  echo 'gem install nokogiri -v 1.7.0.1'
+  gem install nokogiri -v 1.7.0.1
+  echo '-------------------------------'
+  echo 'gem install nokogiri -v 1.6.8.1'
+  gem install nokogiri -v 1.6.8.1
+
+  echo '-----------------------'
+  echo 'gem install mailcatcher'
+  gem install mailcatcher
+}
+
+# Input parameter: 'ruby-x.y'
+function install_ruby_version {
+  ruby_version=$1
+  echo '++++++++++++++++++++++++++++++++'
+  echo "time rbenv install $ruby_version"
+  time rbenv install $ruby_version
+  echo ' /\'
+  echo '/  \'
+  echo "Time to install Ruby $rubyversion"
+  rbenv global $ruby_version
+  time install_gems
+  echo ' /\'
+  echo '/  \'
+  echo 'Time to install gems'
+}
+
+# Allow rbenv commands to work
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+type rbenv
+
+# Latest versions of Ruby
+# https://www.ruby-lang.org/en/downloads/
+time install_ruby_version 2.4.0
+echo ' /\'
+echo '/  \'
+echo 'Time to install Ruby 2.4.0 and gems'
+
+rbenv global 2.4.0
+
+time install_ruby_version 2.3.3
+echo ' /\'
+echo '/  \'
+echo 'Time to install Ruby 2.3.3 and gems'
+
+rbenv global 2.3.3
+
+echo '*********************************'
+echo 'FINISHED installing Ruby on Rails'
+echo '*********************************'
+
+echo '================================================='
+echo 'FINISHED /usr/local/bin/docker-rbenv-avatar-user'
+echo '================================================='
