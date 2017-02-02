@@ -11,42 +11,40 @@ function install_gems {
   gem install bundler
 
   # The latest versions of Rails, PostgreSQL, Nokogiri, and MailCatcher
+  echo '-------------------'
+  echo 'gem install bundler'
+  gem install bundler
+
+  # The latest versions of Rails, PostgreSQL, Nokogiri, and MailCatcher
+  # Plus the versions used in Rails Tutorial
+  # Plus (if necessasry) the versions one version behind Rails Tutorial
   echo '-----------------'
   echo 'gem install rails'
   gem install rails
-  echo '--------------'
-  echo 'gem install pg'
-  gem install pg
-  echo '--------------------'
-  echo 'gem install nokogiri'
-  gem install nokogiri
-  echo '-----------------------'
-  echo 'gem install mailcatcher'
-  gem install mailcatcher
-
-  # For Rails Tutorial (Rails 5.0)
-  # https://www.railstutorial.org/
-  # https://bitbucket.org/railstutorial/sample_app_4th_ed
-  echo '------------------------'
-  echo 'gem install pg -v 0.18.4'
-  gem install pg -v 0.18.4
-  echo '-------------------------------'
-  echo 'gem install nokogiri -v 1.6.8.1'
-  gem install nokogiri -v 1.6.8.1
   echo '--------------------------'
   echo 'gem install rails -v 5.0.1'
   gem install rails -v 5.0.1
 
-  # One version behind Rails Tutorial (Rails 5.0)
+  echo '--------------'
+  echo 'gem install pg'
+  gem install pg
   echo '------------------------'
-  echo 'gem install pg -v 0.18.3'
-  gem install pg -v 0.18.3
+  echo 'gem install pg -v 0.18.4'
+  gem install pg -v 0.18.4
+
+  echo '--------------------'
+  echo 'gem install nokogiri'
+  gem install nokogiri
   echo '-----------------------------'
-  echo 'gem install nokogiri -v 1.6.8'
-  gem install nokogiri -v 1.6.8
-  echo '----------------------------'
-  echo 'gem install rails -v 5.0.0.1'
-  gem install rails -v 5.0.0.1
+  echo 'gem install nokogiri -v 1.7.0'
+  gem install nokogiri -v 1.7.0
+  echo '-------------------------------'
+  echo 'gem install nokogiri -v 1.6.8.1'
+  gem install nokogiri -v 1.6.8.1
+
+  echo '-----------------------'
+  echo 'gem install mailcatcher'
+  gem install mailcatcher
 }
 
 # Input parameter: 'ruby-x.y'
