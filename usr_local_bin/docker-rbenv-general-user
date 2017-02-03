@@ -6,11 +6,13 @@ echo '=============================================='
 
 # Set of gems to install for each version of Ruby
 function install_gems {
+  # Certain gems (such as rainbow) require that Rubygems be updated
+  # The default version of Rubygems may be incompatible with certain
+  # gems, such as rainbow, rubocop, and annotate.
   echo '-------------------'
-  echo 'gem install bundler'
-  gem install bundler
+  echo 'gem update --system'
+  gem update --system
 
-  # The latest versions of Rails, PostgreSQL, Nokogiri, and MailCatcher
   echo '-------------------'
   echo 'gem install bundler'
   gem install bundler
