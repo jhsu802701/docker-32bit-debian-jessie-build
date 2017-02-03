@@ -85,6 +85,10 @@ git clone https://github.com/sstephenson/rbenv-gem-rehash.git /home/winner/.rben
 echo 'FINISHED installation of rbenv-gem-rehash'
 echo '-----------------------------------------'
 
+# rbenv rehash now and upon startup
+rbenv rehash
+echo 'rbenv rehash' >> /home/winner/.bashrc
+
 echo '----------------------------------'
 echo 'BEGIN installation of rbenv-update'
 mkdir -p "$(rbenv root)/plugins"
