@@ -32,15 +32,7 @@ else
   read -p 'Do you wish to continue? (Y/N) ' choice1
   case "$choice1" in 
     y|Y )
-      case "$choice2" in
-        y|Y )
-          bash template.sh $ABBREV 2>&1 | tee $FILE_LOG
-        ;;
-        * )
-          echo '--------------------------'
-          echo "Aborting the build process"
-        ;;
-      esac
+      bash template.sh $ABBREV 2>&1 | tee $FILE_LOG
     ;;
     * )
       echo '--------------------------'
