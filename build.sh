@@ -32,19 +32,9 @@ else
   read -p 'Do you wish to continue? (Y/N) ' choice1
   case "$choice1" in 
     y|Y )
-      echo '*************'
-      echo 'ls -l /bin/sh'
-      ls -l /bin/sh
-      echo '/bin/sh should point to Bash instead of Dash'
-      echo 'If /bin/sh points to Dash, the commands to correct this are:'
-      echo 'sudo rm /bin/sh'
-      echo 'sudo ln -s /bin/bash /bin/sh'
-      echo '****************************'
-      echo
-      read -p 'Are you ready to continue? (Y/N) ' choice2
       case "$choice2" in
         y|Y )
-          sh template.sh $ABBREV 2>&1 | tee $FILE_LOG
+          bash template.sh $ABBREV 2>&1 | tee $FILE_LOG
         ;;
         * )
           echo '--------------------------'
