@@ -40,9 +40,6 @@ function install_gems {
   echo '-----------------------------'
   echo 'gem install nokogiri -v 1.7.0'
   gem install nokogiri -v 1.7.0
-  echo '-------------------------------'
-  echo 'gem install nokogiri -v 1.6.8.1'
-  gem install nokogiri -v 1.6.8.1
 
   echo '-----------------------'
   echo 'gem install mailcatcher'
