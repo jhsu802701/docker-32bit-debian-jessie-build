@@ -53,24 +53,31 @@ create_debian ()
   echo '******************************************'
   echo 'FINISHED Debian from scratch (debootstrap)'
   echo '******************************************'
-  echo '--------------------------------------------------------------------------'
-  echo "Configuring $DIR_CHROOT/etc/apt/apt.conf to install required packages only"
-  echo 'APT::Install-Recommends "0";' > $DIR_CHROOT/etc/apt/apt.conf
-  echo 'APT::Install-Suggests "0";' >> $DIR_CHROOT/etc/apt/apt.conf  
-  echo '----------------------------------'
-  echo "Copying scripts from usr_local_bin"
-  echo 'Copying scripts used for all editions'
-  cp usr_local_bin/docker-root-aptget $DIR_CHROOT/usr/local/bin
-  cp usr_local_bin/docker-root-finalize $DIR_CHROOT/usr/local/bin
-  cp usr_local_bin/docker-user-finalize $DIR_CHROOT/usr/local/bin
+  # echo '+++++++++++++++++++++++'
+  # echo 'BEGIN preparing apt-get'
+  # echo '+++++++++++++++++++++++'
+  # echo '--------------------------------------------------------------------------'
+  # echo "Configuring $DIR_CHROOT/etc/apt/apt.conf to install required packages only"
+  # echo 'APT::Install-Recommends "0";' > $DIR_CHROOT/etc/apt/apt.conf
+  # echo 'APT::Install-Suggests "0";' >> $DIR_CHROOT/etc/apt/apt.conf  
+  # echo '----------------------------------'
+  # echo "Copying scripts from usr_local_bin"
+  # echo 'Copying scripts used for all editions'
+  # cp usr_local_bin/docker-root-aptget $DIR_CHROOT/usr/local/bin
+  # cp usr_local_bin/docker-root-finalize $DIR_CHROOT/usr/local/bin
+  # cp usr_local_bin/docker-user-finalize $DIR_CHROOT/usr/local/bin
   cp usr_local_bin/docker-min $DIR_CHROOT/usr/local/bin
-  cp usr_local_bin/docker-min-* $DIR_CHROOT/usr/local/bin
-  cp usr_local_bin/docker-dev $DIR_CHROOT/usr/local/bin
-  cp usr_local_bin/docker-dev-* $DIR_CHROOT/usr/local/bin
+  # cp usr_local_bin/docker-min-* $DIR_CHROOT/usr/local/bin
+  # cp usr_local_bin/docker-dev $DIR_CHROOT/usr/local/bin
+  # cp usr_local_bin/docker-dev-* $DIR_CHROOT/usr/local/bin
   
   echo '--------------------------------------------'
   echo "chmod a+x $DIR_CHROOT/usr/local/bin/*"
   chmod a+x $DIR_CHROOT/usr/local/bin/*
 
-  exec_chroot $DIR_CHROOT /usr/local/bin/docker-min  
+  exec_chroot $DIR_CHROOT /usr/local/bin/docker-min
+
+  # echo '++++++++++++++++++++++++++'
+  # echo 'FINISHED preparing apt-get'
+  # echo '++++++++++++++++++++++++++'
 }

@@ -4,28 +4,101 @@ echo '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$'
 echo 'BEGIN /usr/local/bin/docker-min'
 echo '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$'
 
-time /usr/local/bin/docker-root-aptget
-echo ' /\'
-echo '/  \'
-echo 'Time to execute /usr/local/bin/docker-root-aptget'
+SECONDS=0
+
+# NOTE: The following apt-get configuration section is redundant.
+# However, downloading the script containing these commands requires
+# curl, which is not yet installed.
+
+echo '+++++++++++++++++++++++'
+echo 'BEGIN preparing apt-get'
+echo '+++++++++++++++++++++++'
+
+echo '---------------------------------------------------------------'
+echo 'Configuring /etc/apt/apt.conf to install required packages only'
+echo 'APT::Install-Recommends "0";' > /etc/apt/apt.conf
+echo 'APT::Install-Suggests "0";' >> /etc/apt/apt.conf
+
+echo '-------------'
+echo 'cd / && du -s'
+cd / && du -s
+
+echo '--------------'
+echo "apt-get update"
+apt-get update
+
+echo '------------------'
+echo "apt-get upgrade -y"
+apt-get upgrade -y
+
+echo '-------------'
+echo 'cd / && du -s'
+cd / && du -s
+
+echo '++++++++++++++++++++++++++'
+echo 'FINISHED preparing apt-get'
+echo '++++++++++++++++++++++++++'
+
+echo '-------------'
+echo 'Time elapsed:'
+echo "$(($SECONDS / 60)) minutes and $(($SECONDS % 60)) seconds"
 
 echo '***********************************************************'
-echo 'BEGIN transforming minimal debootstrap into Minimal Edition'
+echo 'BEGIN transforming official Debian into the Minimal Edition'
 echo '***********************************************************'
 
-time /usr/local/bin/docker-min-root
-echo ' /\'
-echo '/  \'
-echo 'Time to execute /usr/local/bin/docker-min-root'
+# apt-utils is needed for debconf to complete package configuration
+echo '----------------------------'
+echo 'apt-get install -y apt-utils'
+apt-get install -y apt-utils
+
+# curl and ca-certificates are needed to download and execute scripts from GitHub.
+echo '---------------------------------------------'
+echo 'BEGIN apt-get install -y curl ca-certificates'
+echo '---------------------------------------------'
+apt-get install -y apt-utils curl ca-certificates
+echo '------------------------------------------------'
+echo 'FINISHED apt-get install -y curl ca-certificates'
+echo '------------------------------------------------'
+
+echo '-----------------------------------------------------------------------------------------------------------'
+echo 'Downloading scripts to be executed as winner from https://github.com/jhsu802701/docker-debian-jessie-custom'
+curl 'https://raw.githubusercontent.com/jhsu802701/docker-debian-jessie-custom/master/min/user.sh' > '/usr/local/bin/docker-user' 
+curl 'https://raw.githubusercontent.com/jhsu802701/docker-debian-jessie-custom/master/min/check.sh' > '/usr/local/bin/docker-check' 
+curl 'https://raw.githubusercontent.com/jhsu802701/docker-debian-jessie-custom/master/finalize-user.sh' > '/usr/local/bin/docker-user-finalize'
+
+echo '------------------------------------'
+echo 'Making downloaded scripts executable'
+chmod +x /usr/local/bin/*
+
+curl https://raw.githubusercontent.com/jhsu802701/docker-debian-jessie-custom/master/min/root.sh | bash
+su -c /usr/local/bin/docker-user winner
+
+echo '-------------------'
+echo 'BEGIN sanity checks'
+echo '-------------------'
+su -c /usr/local/bin/docker-check winner
+echo '----------------------'
+echo 'FINISHED sanity checks'
+echo '----------------------'
+
+echo '-------------'
+echo 'Time elapsed:'
+echo "$(($SECONDS / 60)) minutes and $(($SECONDS % 60)) seconds"
 
 echo '**************************************************************'
-echo 'FINISHED transforming minimal debootstrap into Minimal Edition'
+echo 'FINISHED transforming official Debian into the Minimal Edition'
 echo '**************************************************************'
 
-time /usr/local/bin/docker-root-finalize
-echo ' /\'
-echo '/  \'
-echo 'Time to execute /usr/local/bin/docker-root-finalize'
+curl https://raw.githubusercontent.com/jhsu802701/docker-debian-jessie-custom/master/finalize-root.sh | bash
+
+su -c /usr/local/bin/docker-user-finalize winner
+
+rm /usr/local/bin/*
+
+echo '-------------'
+echo 'Time elapsed:'
+echo "$(($SECONDS / 60)) minutes and $(($SECONDS % 60)) seconds"
 
 echo '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$'
 echo 'FINISHED /usr/local/bin/docker-min'
