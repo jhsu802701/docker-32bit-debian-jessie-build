@@ -1,32 +1,51 @@
 #!/bin/bash
 
-echo '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$'
-echo 'BEGIN /usr/local/bin/docker-dev'
-echo '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$'
+SECONDS=0
 
-time /usr/local/bin/docker-root-aptget
-echo ' /\'
-echo '/  \'
-echo 'Time to execute /usr/local/bin/docker-root-aptget'
+curl https://raw.githubusercontent.com/jhsu802701/docker-debian-jessie-custom/master/aptget.sh | sudo bash
 
-echo '*********************************************************'
-echo 'BEGIN transforming Minimal Edition into Developer Edition'
-echo '*********************************************************'
+echo '*******************************'
+echo 'BEGIN transforming min into dev'
+echo '*******************************'
 
-time /usr/local/bin/docker-dev-root
-echo ' /\'
-echo '/  \'
-echo 'Time to execute /usr/local/bin/docker-dev-root'
+echo '-------------'
+echo 'Time elapsed:'
+echo "$(($SECONDS / 60)) minutes and $(($SECONDS % 60)) seconds"
 
-echo '************************************************************'
-echo 'FINISHED transforming Minimal Edition into Developer Edition'
-echo '************************************************************'
+echo '-----------------------------------------------------------------------------------------------------------'
+echo 'Downloading scripts to be executed as winner from https://github.com/jhsu802701/docker-debian-jessie-custom'
+curl 'https://raw.githubusercontent.com/jhsu802701/docker-debian-jessie-custom/master/dev/user1.sh' > '/usr/local/bin/docker-dev-user1'
+curl 'https://raw.githubusercontent.com/jhsu802701/docker-debian-jessie-custom/master/dev/user2.sh' > '/usr/local/bin/docker-dev-user2'
+curl 'https://raw.githubusercontent.com/jhsu802701/docker-debian-jessie-custom/master/dev/check.sh' > '/usr/local/bin/docker-dev-check' 
+curl 'https://raw.githubusercontent.com/jhsu802701/docker-debian-jessie-custom/master/finalize-user.sh' > '/usr/local/bin/docker-user-finalize'
 
-time /usr/local/bin/docker-root-finalize
-echo ' /\'
-echo '/  \'
-echo 'Time to execute /usr/local/bin/docker-root-finalize'
+echo '------------------------------------'
+echo 'Making downloaded scripts executable'
+chmod +x /usr/local/bin/*
 
-echo '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$'
-echo 'FINISHED /usr/local/bin/docker-dev'
-echo '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$'
+curl https://raw.githubusercontent.com/jhsu802701/docker-debian-jessie-custom/master/dev/root.sh | sudo bash
+su -c /usr/local/bin/docker-dev-user1 winner
+su -c /usr/local/bin/docker-dev-user2 winner
+
+echo '-------------------'
+echo 'BEGIN sanity checks'
+echo '-------------------'
+su -c /usr/local/bin/docker-dev-check winner
+echo '----------------------'
+echo 'FINISHED sanity checks'
+echo '----------------------'
+
+echo '-------------'
+echo 'Time elapsed:'
+echo "$(($SECONDS / 60)) minutes and $(($SECONDS % 60)) seconds"
+
+echo '**********************************'
+echo 'FINISHED transforming min into dev'
+echo '**********************************'
+
+curl https://raw.githubusercontent.com/jhsu802701/docker-debian-jessie-custom/master/finalize-root.sh | sudo bash
+curl https://raw.githubusercontent.com/jhsu802701/docker-debian-jessie-custom/master/finalize-user.sh | bash
+
+echo '-------------'
+echo 'Time elapsed:'
+echo "$(($SECONDS / 60)) minutes and $(($SECONDS % 60)) seconds"

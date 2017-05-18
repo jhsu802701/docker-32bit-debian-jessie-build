@@ -17,10 +17,7 @@ rm -rf $DIR_TMP_ABBREV
 mkdir $DIR_TMP_ABBREV
 mkdir $DIR_TMP_ABBREV/usr_local_bin
 cp template/* $DIR_TMP_ABBREV
-cp usr_local_bin/docker-dev $DIR_TMP_ABBREV/usr_local_bin
-cp usr_local_bin/docker-dev-* $DIR_TMP_ABBREV/usr_local_bin
-cp usr_local_bin/docker-$ABBREV $DIR_TMP_ABBREV/usr_local_bin
-cp usr_local_bin/docker-$ABBREV-* $DIR_TMP_ABBREV/usr_local_bin
+cp usr_local_bin/* $DIR_TMP_ABBREV/usr_local_bin
 
 echo 'NOTICE:' > $DIR_TMP_ABBREV/README.txt
 echo 'Files in this directory are created with an automated script.' >> $DIR_TMP_ABBREV/README.txt
